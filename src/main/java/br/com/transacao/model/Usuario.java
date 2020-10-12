@@ -10,6 +10,8 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 /**
  * Representa um usuário no sistema
  * 
+ * A extensao do panacheEntityBase implementa o padrão activeRecords
+ * 
  * @author jlv
  *
  */
