@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
- * Class responsável por representar um bitcoin
+ * Classe responsável por representar um bitcoin
  * @author jlv
  *
  */
@@ -21,6 +21,7 @@ public class Bitcoin {
 	public Bitcoin() {}
 
 	public Bitcoin(Long id, BigDecimal preco, String tipo, LocalDate data) {
+		
 		super();
 		this.id = id;
 		this.preco = preco;

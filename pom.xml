@@ -71,6 +71,12 @@
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-hibernate-orm-panache</artifactId>
 		</dependency>
+		<!-- lib de segurança/liberacao ou não de acesso ao recurso -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-security-jpa</artifactId>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>

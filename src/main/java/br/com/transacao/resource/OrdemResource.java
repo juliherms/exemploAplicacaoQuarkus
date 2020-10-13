@@ -2,6 +2,7 @@ package br.com.transacao.resource;
 
 import java.time.LocalDate;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
@@ -30,6 +31,7 @@ public class OrdemResource {
 	 */
 	@POST
 	@Transactional
+	@RolesAllowed("user")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void inserir(Ordem ordem) {
 
@@ -37,5 +39,6 @@ public class OrdemResource {
 		ordem.setStatus("ENVIADA");
 
 		ordemRepository.persist(ordem);
+		
 	}
 }
