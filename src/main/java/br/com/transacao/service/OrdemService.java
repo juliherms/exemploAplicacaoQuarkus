@@ -1,6 +1,7 @@
 package br.com.transacao.service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -21,8 +22,8 @@ public class OrdemService {
 
 		Optional<Usuario> optionalUsuario = Usuario.findByIdOptional(ordem.getUserId());
 		Usuario usuario = optionalUsuario.orElseThrow();
-		
-		if(!usuario.getUsername().equals(context.getUserPrincipal().getName())) {
+
+		if (!usuario.getUsername().equals(context.getUserPrincipal().getName())) {
 			throw new RuntimeException("O usuário logado é diferente do userId");
 		}
 
@@ -30,5 +31,9 @@ public class OrdemService {
 		ordem.setStatus("ENVIADA");
 
 		ordemRepository.persist(ordem);
+	}
+
+	public List<Ordem> listar() {
+		return ordemRepository.listAll();
 	}
 }
