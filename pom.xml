@@ -76,7 +76,16 @@
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-security-jpa</artifactId>
 		</dependency>
-		
+		<!-- mockito para métodos estáticos do panache -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-panache-mock</artifactId>
+		</dependency>
+		<!-- mockito para testar os respositorios -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-junit5-mockito</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
