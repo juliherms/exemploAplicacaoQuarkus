@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 
 /**
  * Representa uma classe de ordem
@@ -17,7 +17,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
  *
  */
 @Entity
-public class Ordem extends PanacheEntityBase {
+public class Ordem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
