@@ -28,3 +28,14 @@ services:
       - "14268:14268"
       - "14250:14250"
       - "9411:9411"
+
+ #configuracao do prometheus
+  prometheus-service: 
+    container_name: prometheus_service
+    restart: always
+    image: prom/prometheus:v2.17.2
+    ports:
+     - 9090:9090
+    volumes:
+     - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    

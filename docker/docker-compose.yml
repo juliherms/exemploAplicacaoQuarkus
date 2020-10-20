@@ -30,6 +30,8 @@ services:
       - POSTGRES_DB=transacoes
       - POSTGRES_USER=register
       - POSTGRES_PASSWORD=register
+      - JAEGER_SERVICE=jaeger_service
+      - PROMETHEUS_SERVICE=prometheus_service
     ports:
       - 8080:8080
     depends_on:
@@ -52,6 +54,19 @@ services:
       - "9411:9411"
     networks:
       - minha-rede
+
+  #configuracao do prometheus
+  prometheus-service: 
+    container_name: prometheus_service
+    image: prom/prometheus:v2.17.2
+    volumes:
+     - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+     - 9090:9090
+    networks:
+      - minha-rede
+   
+
 
 networks: 
   minha-rede:
