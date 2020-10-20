@@ -6,7 +6,6 @@ services:
   postgres-database: 
     container_name: postgres-database
     image: postgres:12.3
-    #network_mode: "bridge"
     volumes:
       - "/var/lib/postgresql/data:/var/lib/postgresql/data" 
     #Enviroment variable for DB name, user and password 
@@ -22,8 +21,7 @@ services:
   #microservico de transacao
   transacao-jvm: 
     container_name: ms_transacao
-    image: quarkus/transacoes12-jvm:latest
-    #network_mode: "bridge"
+    image: quarkus/transacoes31-jvm:latest
     build:
       context: ./
       dockerfile: src/main/docker/Dockerfile.${QUARKUS_MODE:-jvm}
@@ -36,6 +34,22 @@ services:
       - 8080:8080
     depends_on:
       - postgres-database
+    networks:
+      - minha-rede
+
+  #configuracao do jaeger para trace de log
+  jaeger-service: 
+    container_name: jaeger_service
+    image: jaegertracing/all-in-one:1.17
+    ports:
+    - "5775:5775/udp"
+    - "6831:6831/udp"
+    - "6832:6832/udp"
+    - "5778:5778"
+    - "16686:16686"
+    - "14268:14268"
+    - "14250:14250"
+    - "9511:9411"
     networks:
       - minha-rede
 

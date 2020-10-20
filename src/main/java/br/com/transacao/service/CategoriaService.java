@@ -9,23 +9,23 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import br.com.transacao.model.Bitcoin;
+import br.com.transacao.model.Categoria;
 
 /**
  * Class de servico responsável por acessar uma URL externa
  * @author jlv
  *
  */
-@Path("/bitcoins")
-@RegisterRestClient(configKey = "bitcoin-api") // habilita o serviço a ser injetado
-public interface BitcoinService {
+@Path("/categorias")
+@RegisterRestClient(configKey = "categoria-api") // habilita o serviço a ser injetado
+public interface CategoriaService {
 
 	/**
-	 * Lista os bitcoins acessando uma api externa.
+	 * Lista as categorias acessando uma api externa.
 	 * Url configurada no application.properties
 	 * @return
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Bitcoin> listar();
+	public List<Categoria> listar();
 }

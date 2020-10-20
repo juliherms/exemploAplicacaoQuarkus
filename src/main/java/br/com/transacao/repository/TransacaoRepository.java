@@ -6,7 +6,7 @@ import br.com.transacao.model.Transacao;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 /**
- * Representa um repositorio de Ordem
+ * Representa um repositorio de Transacao
  * @author jlv
  *
  */

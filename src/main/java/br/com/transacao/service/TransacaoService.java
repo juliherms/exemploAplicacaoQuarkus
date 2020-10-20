@@ -22,4 +22,6 @@ public class TransacaoService {
 	public List<Transacao> listar() {
 		return transacaoRepository.listAll();
 	}
+	
+	
 }

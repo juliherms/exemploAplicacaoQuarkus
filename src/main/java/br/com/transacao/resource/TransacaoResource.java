@@ -2,7 +2,6 @@ package br.com.transacao.resource;
 
 import java.util.List;
 
-import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
@@ -11,9 +10,16 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
-import br.com.transacao.model.Ordem;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+
+import br.com.transacao.model.Categoria;
 import br.com.transacao.model.Transacao;
+import br.com.transacao.service.CategoriaService;
 import br.com.transacao.service.TransacaoService;
 
 /**
@@ -23,29 +29,48 @@ import br.com.transacao.service.TransacaoService;
  *
  */
 @Path("/transacoes")
+@Tag(name = "transacoes")
 public class TransacaoResource {
 
 	@Inject
 	TransacaoService transacaoService;
 
+	@Inject
+	@RestClient
+	CategoriaService categoriaService;
+
 	/**
-	 * Metodo responsável por inserir uma ordem
+	 * Metodo responsavel por listar todos as categorias
+	 * 
+	 * @return
+	 */
+	@GET
+	@Path("categorias")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Categoria> listarTodos() {
+		return categoriaService.listar();
+	}
+
+	/**
+	 * Metodo responsável por inserir uma transacao
 	 * 
 	 * @param ordem
 	 */
 	@POST
 	@Transactional
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void inserir(Transacao transacao) {
+	@APIResponse(responseCode = "201", description = "Caso a transacao seja processada com sucesso")
+	public Response inserir(Transacao transacao) {
 
 		transacaoService.save(transacao);
+		return Response.status(Status.CREATED).build();
 
 	}
-	
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Ordem> listar() {
-		
+	public List<Transacao> listar() {
+
 		return transacaoService.listar();
 	}
 
