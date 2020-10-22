@@ -28,10 +28,10 @@ scrape_configs:
     static_configs:
     - targets: ['localhost:9090']
     
-  - job_name: 'ms-transacao'
+  - job_name: 'microservico'
 
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     scrape_interval:     5s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
     static_configs:
-    - targets: ['localhost:8080']
+    - targets: ['ms_transacao:8080']

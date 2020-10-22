@@ -100,6 +100,11 @@
 			<groupId>io.opentracing.contrib</groupId>
 			<artifactId>opentracing-jdbc</artifactId>
 		</dependency>
+		<!-- adiciona as métricas no padrão prometheus -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-metrics</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

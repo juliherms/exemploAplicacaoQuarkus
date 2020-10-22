@@ -13,6 +13,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.SimplyTimed;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -69,6 +72,9 @@ public class TransacaoResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
+	@Counted(name = "Quantidade de listagem de transacoes")
+	@SimplyTimed(name = "Tempo simples da busca de listagem de transacaoes")
+	@Timed(name = "Tempo completo de listagem de transacoes")
 	public List<Transacao> listar() {
 
 		return transacaoService.listar();
