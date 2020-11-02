@@ -72,9 +72,9 @@ public class TransacaoResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Counted(name = "Quantidade de listagem de transacoes")
-	@SimplyTimed(name = "Tempo simples da busca de listagem de transacaoes")
-	@Timed(name = "Tempo completo de listagem de transacoes")
+	@Counted(name = "Quantidade de listagem de transacoes") //conta quantas vezes o método foi chamado
+	@SimplyTimed(name = "Tempo simples da busca de listagem de transacaoes") //o tempo que demorou a média de requisições
+	@Timed(name = "Tempo completo de listagem de transacoes") // disponibiliza vários agrupamentos
 	public List<Transacao> listar() {
 
 		return transacaoService.listar();

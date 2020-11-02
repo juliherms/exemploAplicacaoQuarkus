@@ -3,7 +3,6 @@ package br.com.transacao.service;
 import java.util.List;
 
 import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -16,7 +15,6 @@ import br.com.transacao.model.Categoria;
  * @author jlv
  *
  */
-@Path("/categorias")
 @RegisterRestClient(configKey = "categoria-api") // habilita o serviço a ser injetado
 public interface CategoriaService {
 
