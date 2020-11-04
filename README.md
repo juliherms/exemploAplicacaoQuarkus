@@ -34,13 +34,13 @@ Microprofile e aderência a cloud native applications.
 
 ### Tecnologias utilizadas
 
-| Artefato                        | Descrição  |
-|---------------------------------|------------|
-| ms_transacao                    | Porta:8080  Microserviço responsável por receber uma transação e realizar sua persistência |
-| postgres-database               | Porta:5432  Banco de dados postgres responsável pelo armazenamento dos dados  |
-| jaeger_service                  | Porta:14268 Serviço responsável por monitorar e rastrear o trace de chamada dos microserviços  |
-| grafana-service                 | Porta:3000  Instância do Prometheus, responsável por obter as métricas dos microserviços e apresentar o monitoramento |
-| prometheus-service              | Porta:9090  Responsável por obter as métricas de monitoramento dos microserviçoes e enviar para o Grafana  |
+| Artefato                        |Porta  | Descrição  |
+|---------------------------------|------ |-----|
+| ms_transacao                    | 8080  | Microserviço responsável por receber uma transação e realizar sua persistência |
+| postgres-database               | 5432  | Banco de dados postgres responsável pelo armazenamento dos dados  |
+| jaeger_service                  | 14268 | Serviço responsável por monitorar e rastrear o trace de chamada dos microserviços  |
+| grafana-service                 | 3000  | Instância do Prometheus, responsável por obter as métricas dos microserviços e apresentar o monitoramento |
+| prometheus-service              | 9090  | Responsável por obter as métricas de monitoramento dos microserviçoes e enviar para o Grafana  |
 
 
 ### Executando a aplicação em container
