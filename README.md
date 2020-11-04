@@ -19,9 +19,9 @@ Microprofile e aderência a cloud native applications.
 
 
 
-### Requeriments
+### Referência
 
-- The project follows [**CloudNative**](https://www.cncf.io/) recommendations and The [**twelve-factor app**](https://12factor.net/) . 
+- Este projeto segue as recomendações [**CloudNative**](https://www.cncf.io/) e [**twelve-factor app**](https://12factor.net/) . 
 
 
 ### Desafios na arquitetura de microserviços
