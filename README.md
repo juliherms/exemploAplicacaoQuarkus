@@ -59,6 +59,8 @@ da aplicação. A sua configuração se dá através do application.properties
 
 Desta forma os logs serão enviados via chamada http para o container do Jaeger e poderá ser visualizado na tela abaixo:
 
+<img src="img/jaeger.png">
+
 ### Prometheus e Observabilidade
 
 Um outro grande desafio no mundo dos microserviços é a observabilidade, como se trata de um ambiente distribuído e independente torna-se extremamente importante
@@ -81,6 +83,18 @@ A configuração de jobs de checagem ou scrap no prometheus é realizada atravé
 ```
 
 O arquivo descrito acima é passado via parmâmetro no momento de criação do docker compose.
+
+<img src="img/prometheus.png">
+
+### Grafana e Monitoramento
+
+Até o tópico anterior, focamos na forma de como obter a métrica de um microserviço. No quarkus, esta métrica é facilmente obtida pelo fato do framework 
+implementar várias features do microprofile. o /metrics é uma delas.
+
+Neste passo referente ao grafana, o nosso maior requisito é ter a possibilidade de ler as métricas forma amigável. O Grafana tem a proposta de acessar
+o prometheus via datasource e apresentar este dado em tempo real de forma gráfica conforme abaixo:
+
+<img src="img/grafana.png">
 
 ### Executando a aplicação em container
 
