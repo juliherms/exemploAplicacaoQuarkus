@@ -33,7 +33,7 @@ Microprofile e aderência a cloud native applications.
 
 No meu ponto de vista o quarkus possui 3 pontos que vale a pena destacar:
 
-1. O tempo de startup, no mundo de microserviços os containers são efêmeros e devem ser capazes de se recuperar e escalar rapidamente.
+1. O tempo de startup, no mundo de microserviços os containers são efêmeros e devem ser capaz de se recuperar e escalar rapidamente.
 2. O uso de memória e processamento. Atualmente para o mundo cloud o uso de memória e processamento tem um custo essêncial seguindo a idéia de Pay per Use.
 3. O fato de implementar o Microprofile onde trás um conjunto de especificações focadas e microserviços.
 
