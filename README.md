@@ -42,6 +42,45 @@ Microprofile e aderência a cloud native applications.
 | grafana-service                 | 3000  | Instância do Prometheus, responsável por obter as métricas dos microserviços e apresentar o monitoramento |
 | prometheus-service              | 9090  | Responsável por obter as métricas de monitoramento dos microserviçoes e enviar para o Grafana  |
 
+### Jaeger e Logs
+
+O Jaeger é o 11. fator referente ao cloud native. Os logs são tratados como uma sequência e eventos emitidos pelos microserviços de forma ordernada de 
+acordo com o tempo. Um dos principais desafios da arquitetura de microserviços é o armazenamento, análise e rastrabilidade de logs uma vez que as regras
+de negócios estão distribuídas em suas arquitetura. Uma as alternativas é a utilização do Jaeger, que será responsável pelo armazenamento de todos os logs
+da aplicação. A sua configuração se dá através do application.properties
+
+```sh
+	#configuracao do jaeger
+	quarkus.jaeger.service-name=ms-transacao
+	quarkus.jaeger.sampler-type=const
+	quarkus.jaeger.sampler-param=1
+	quarkus.jaeger.endpoint=http://jaeger_service:14268/api/traces
+```
+
+Desta forma os logs serão enviados via chamada http para o container do Jaeger e poderá ser visualizado na tela abaixo:
+
+### Prometheus e Observabilidade
+
+Um outro grande desafio no mundo dos microserviços é a observabilidade, como se trata de um ambiente distribuído e independente torna-se extremamente importante
+o monitoramento dessas features de forma proativa, sendo assim reduzindo qualquer risco e otimizando o tempo de resposta em caso de incidentes/crise.
+
+O prometheus diferentemente do Logstash(referente ao Stack do ELK) tem uma abordagem de a partir da sua configuração, o mesmo será responsável por de tempos
+em tempos checar as métricas dos seus microserviços, será através do healh check ou metrics. Ambos são importantes para a checagem de disponibilidade e 
+comportamento da nossa solução.
+
+A configuração de jobs de checagem ou scrap no prometheus é realizada através de uma arquivo declarativo (prometheus.yml), da seguinte forma:
+
+```sh
+- job_name: 'microservico'
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    scrape_interval:     5s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+    static_configs:
+    - targets: ['ms_transacao:8080']
+```
+
+O arquivo descrito acima é passado via parmâmetro no momento de criação do docker compose.
 
 ### Executando a aplicação em container
 
