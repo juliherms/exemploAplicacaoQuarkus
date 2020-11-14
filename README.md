@@ -46,7 +46,7 @@ Microprofile e aderência a cloud native applications.
 
 O Jaeger é o 11. fator referente ao cloud native. Os logs são tratados como uma sequência e eventos emitidos pelos microserviços de forma ordernada de 
 acordo com o tempo. Um dos principais desafios da arquitetura de microserviços é o armazenamento, análise e rastrabilidade de logs uma vez que as regras
-de negócios estão distribuídas em suas arquitetura. Uma as alternativas é a utilização do Jaeger, que será responsável pelo armazenamento de todos os logs
+de negócios estão distribuídas em sua arquitetura. Uma das alternativas é a utilização do Jaeger, que será responsável pelo armazenamento de todos os logs
 da aplicação. A sua configuração se dá através do application.properties
 
 ```sh
@@ -66,11 +66,11 @@ Desta forma os logs serão enviados via chamada http para o container do Jaeger 
 Um outro grande desafio no mundo dos microserviços é a observabilidade, como se trata de um ambiente distribuído e independente torna-se extremamente importante
 o monitoramento dessas features de forma proativa, sendo assim reduzindo qualquer risco e otimizando o tempo de resposta em caso de incidentes/crise.
 
-O prometheus diferentemente do Logstash(referente ao Stack do ELK) tem uma abordagem de a partir da sua configuração, o mesmo será responsável por de tempos
-em tempos checar as métricas dos seus microserviços, será através do healh check ou metrics. Ambos são importantes para a checagem de disponibilidade e 
+O prometheus diferentemente do Logstash(referente ao Stack do ELK) tem uma abordagem de "buscar" as métricas a partir da sua configuração, o mesmo será responsável por de tempos
+em tempos checar as métricas dos seus microserviços, isso acontece através do healh check ou metrics. Ambos são importantes para a checagem de disponibilidade e 
 comportamento da nossa solução.
 
-A configuração de jobs de checagem ou scrap no prometheus é realizada através de uma arquivo declarativo (prometheus.yml), da seguinte forma:
+A configuração de jobs de checagem ou scrap no prometheus é realizada através de um arquivo declarativo (prometheus.yml), da seguinte forma:
 
 ```sh
 - job_name: 'microservico'
@@ -82,7 +82,7 @@ A configuração de jobs de checagem ou scrap no prometheus é realizada atravé
     - targets: ['ms_transacao:8080']
 ```
 
-O arquivo descrito acima é passado via parmâmetro no momento de criação do docker compose.
+O arquivo descrito acima é passado via parmâmetro no momento de criação do container no docker compose.
 
 <img src="img/prometheus.PNG">
 
