@@ -17,12 +17,9 @@ Microprofile e aderência a cloud native applications.
 - [Quarkus](https://quarkus.io/)
 - [Maven](https://maven.apache.org/)
 
-
-
 ### Referência
 
 - Este projeto segue as recomendações [**CloudNative**](https://www.cncf.io/) e [**twelve-factor app**](https://12factor.net/) . 
-
 
 ### Desafios na arquitetura de microserviços
 
@@ -30,7 +27,7 @@ Microprofile e aderência a cloud native applications.
 - Dinamismo e escalabilidade
 - Aplicação distribuída
 - Tracing e monitoramento
-- Fault Tolerance (relisiência)
+- Fault Tolerance (resiliência)
 
 ### Tecnologias utilizadas
 
