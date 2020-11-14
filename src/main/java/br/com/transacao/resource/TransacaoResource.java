@@ -16,13 +16,11 @@ import javax.ws.rs.core.Response.Status;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.SimplyTimed;
 import org.eclipse.microprofile.metrics.annotation.Timed;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.eclipse.microprofile.rest.client.inject.RestClient;
 
-import br.com.transacao.model.Categoria;
 import br.com.transacao.model.Transacao;
-import br.com.transacao.service.CategoriaService;
 import br.com.transacao.service.TransacaoService;
 
 /**
@@ -38,22 +36,6 @@ public class TransacaoResource {
 	@Inject
 	TransacaoService transacaoService;
 
-	@Inject
-	@RestClient
-	CategoriaService categoriaService;
-
-	/**
-	 * Metodo responsavel por listar todos as categorias
-	 * 
-	 * @return
-	 */
-	@GET
-	@Path("categorias")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Categoria> listarTodos() {
-		return categoriaService.listar();
-	}
-
 	/**
 	 * Metodo responsável por inserir uma transacao
 	 * 
@@ -62,6 +44,7 @@ public class TransacaoResource {
 	@POST
 	@Transactional
 	@Consumes(MediaType.APPLICATION_JSON)
+	@Operation(description = "Recebe uma transação e processa o seu pagamento", summary = "Processa uma transaçao")
 	@APIResponse(responseCode = "201", description = "Caso a transacao seja processada com sucesso")
 	public Response inserir(Transacao transacao) {
 
@@ -72,6 +55,7 @@ public class TransacaoResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
+	@Operation(description = "Exibe as transações processadas", summary = "Lista as transações")
 	@Counted(name = "Quantidade de listagem de transacoes") //conta quantas vezes o método foi chamado
 	@SimplyTimed(name = "Tempo simples da busca de listagem de transacaoes") //o tempo que demorou a média de requisições
 	@Timed(name = "Tempo completo de listagem de transacoes") // disponibiliza vários agrupamentos

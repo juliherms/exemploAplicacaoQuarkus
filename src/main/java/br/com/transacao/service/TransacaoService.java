@@ -8,6 +8,11 @@ import javax.inject.Inject;
 import br.com.transacao.model.Transacao;
 import br.com.transacao.repository.TransacaoRepository;
 
+/**
+ * Classe de service responsável por regras de negócio e acesso a banco de dados
+ * @author jlv
+ *
+ */
 @ApplicationScoped
 public class TransacaoService {
 

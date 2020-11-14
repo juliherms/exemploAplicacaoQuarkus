@@ -42,6 +42,12 @@ Microprofile e aderência a cloud native applications.
 | grafana-service                 | 3000  | Instância do Prometheus, responsável por obter as métricas dos microserviços e apresentar o monitoramento |
 | prometheus-service              | 9090  | Responsável por obter as métricas de monitoramento dos microserviçoes e enviar para o Grafana  |
 
+### Swagger OpenApi e Documentação
+
+Neste exemplo basicamente a proposta da API é processar uma transação de pagamento e listar as transações processadas.
+
+<img src="img/openapi.PNG">
+
 ### Jaeger e Logs
 
 O Jaeger é o 11. fator referente ao cloud native. Os logs são tratados como uma sequência e eventos emitidos pelos microserviços de forma ordernada de 
