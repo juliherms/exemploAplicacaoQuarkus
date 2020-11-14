@@ -46,6 +46,7 @@ public class TransacaoResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Operation(description = "Recebe uma transação e processa o seu pagamento", summary = "Processa uma transaçao")
 	@APIResponse(responseCode = "201", description = "Caso a transacao seja processada com sucesso")
+	@Counted(name="Quantidade de transações recebidas")
 	public Response inserir(Transacao transacao) {
 
 		transacaoService.save(transacao);

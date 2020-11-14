@@ -46,6 +46,7 @@ No meu ponto de vista o quarkus possui 3 pontos que vale a pena destacar:
 |---------------------------------|------ |-----|
 | ms_transacao                    | 8080  | Microserviço responsável por receber uma transação e realizar sua persistência |
 | postgres-database               | 5432  | Banco de dados postgres responsável pelo armazenamento dos dados  |
+| Artemis MQ                      | 8161  | Servidor de mensageria que utilizamos neste exemplo |
 | jaeger_service                  | 14268 | Serviço responsável por monitorar e rastrear o trace de chamada dos microserviços  |
 | grafana-service                 | 3000  | Instância do Prometheus, responsável por obter as métricas dos microserviços e apresentar o monitoramento |
 | prometheus-service              | 9090  | Responsável por obter as métricas de monitoramento dos microserviçoes e enviar para o Grafana  |
@@ -55,6 +56,10 @@ No meu ponto de vista o quarkus possui 3 pontos que vale a pena destacar:
 Neste exemplo basicamente a proposta da API é processar uma transação de pagamento e listar as transações processadas.
 
 <img src="img/openapi.PNG">
+
+### Mensageria e escalabilidade
+
+<img src="img/activeMQ.PNG">
 
 ### Jaeger e Logs
 

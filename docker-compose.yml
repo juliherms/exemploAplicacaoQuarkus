@@ -75,6 +75,20 @@ services:
      - 3000:3000
     networks:
       - minha-rede
+
+ #configuracao do rabbitMQ
+  artemis-service:   
+    container_name: artemis_service
+    image: vromero/activemq-artemis:2.11.0
+    ports:
+     - 8161:8161
+     - 5672:5672
+    environment:
+       ARTEMIS_USERNAME: admin
+       ARTEMIS_PASSWORD: admin
+    networks:
+      - minha-rede
+
    
 networks: 
   minha-rede:
