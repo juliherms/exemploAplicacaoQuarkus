@@ -68,6 +68,9 @@ acordo com o tempo. Um dos principais desafios da arquitetura de microserviços 
 de negócios estão distribuídas em sua arquitetura. Uma das alternativas é a utilização do Jaeger, que será responsável pelo armazenamento de todos os logs
 da aplicação. A sua configuração se dá através do application.properties
 
+
+<img src="img/jaeger2.PNG">
+
 ```sh
 	#configuracao do jaeger
 	quarkus.jaeger.service-name=ms-transacao
