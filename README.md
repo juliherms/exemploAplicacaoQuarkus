@@ -63,7 +63,7 @@ Neste exemplo basicamente a proposta da API é processar uma transação de paga
 
 ### Jaeger e Logs
 
-O Jaeger é o 11. fator referente ao cloud native. Os logs são tratados como uma sequência e eventos emitidos pelos microserviços de forma ordernada de 
+O Log e Tracing é o 11. fator referente ao cloud native. Os logs são tratados como uma sequência e eventos emitidos pelos microserviços de forma ordernada de 
 acordo com o tempo. Um dos principais desafios da arquitetura de microserviços é o armazenamento, análise e rastrabilidade de logs uma vez que as regras
 de negócios estão distribuídas em sua arquitetura. Uma das alternativas é a utilização do Jaeger, que será responsável pelo armazenamento de todos os logs
 da aplicação. A sua configuração se dá através do application.properties
