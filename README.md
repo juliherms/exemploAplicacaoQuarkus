@@ -69,7 +69,7 @@ de negócios estão distribuídas em sua arquitetura. Uma das alternativas é a 
 da aplicação. A sua configuração se dá através do application.properties
 
 
-<img src="img/jaeger2.PNG">
+<img src="img/jaeger2.png">
 
 ```sh
 	#configuracao do jaeger
